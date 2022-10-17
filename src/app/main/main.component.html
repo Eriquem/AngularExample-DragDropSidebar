@@ -1,0 +1,31 @@
+<main class="h100">
+    <mat-sidenav-container cdkDropListGroup>
+        <!-- search-->
+        <mat-sidenav [opened]="openSidebar" mode="side" [fixedInViewport]="true" class="fixedWidth">
+            <div *ngIf="sidebarElements as SBElements" class="draggable-content list-unstyled" cdkDropList
+                [cdkDropListData]="SBElements">
+                <app-user-element *ngFor="let sbel of SBElements" [Name]="sbel.Name" [Surname]="sbel.Surname">
+                </app-user-element>
+            </div>
+        </mat-sidenav>
+        <!-- odstranjanje elementov-->
+        <mat-sidenav [opened]="openSidebar" mode="side" position="end" [fixedInViewport]="true" class="bg-red "
+            cdkDropList (cdkDropListDropped)="ElementTrashed($event)">
+            <div class="align-items-center justify-content-center mt50">
+                <fa-icon class="px-4" [size]="'5x'" [icon]="trashIcon"></fa-icon>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content class=" mt-5 row d-flex justify-content-center text-center">
+            <ng-container *ngIf="mainElements as MElements">
+                <div class="list-unstyled col-8 text-center justify-content-center bordered " 
+                     cdkDropList  #mainList="cdkDropList"
+                     [cdkDropListData]="MElements"
+                     (cdkDropListDropped)="ElementDropped($event)">
+                    <app-user-element *ngFor="let mel of MElements" [Name]="mel.Name" [Surname]="mel.Surname">
+                    </app-user-element>
+                </div>
+            </ng-container>
+            <div class="btn btn-primary  row col-6  text-center mt-3" (click)="toggleSideNav()">TOGGLE</div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</main>

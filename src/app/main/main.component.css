@@ -1,0 +1,32 @@
+
+.cleanUL {
+    list-style-type: none !important;
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+.bordered{
+    border: solid 0.3rem 
+}
+.bg-red{
+    background-color: red;
+}
+.bg-red:hover{
+    background-color: brown;
+}
+.fixedWidth{
+    width: 5rem;
+}
+.mt50{
+    margin-top: 50vh !important;
+}
+.h100{
+    height: 100%;
+}
+.draggable-content {
+    position: fixed;
+}
+.fixedWidth{
+    width: 30vh;
+}
